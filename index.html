@@ -4,49 +4,75 @@
 		<meta charset="utf-8" />
 		<title>Directory of Publishing@W3C Documents</title>
 		<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
+		<script>
+			function stripAbstract() {
+				var toc_link = document.querySelector("li.tocline > a[href='#abstract']");
+					toc_link.parentNode.parentNode.removeChild(toc_link.parentNode);
+				
+				var abs_section = document.getElementById("abstract");
+					abs_section.parentNode.removeChild(abs_section);
+			}
+		</script>
+
 		<script class="remove">
 			//<![CDATA[
 	        var respecConfig = {
 	            specStatus: "base",
 	            shortName: "publishing-dir",
 	            edDraftURI: null,
+	            latestVersion: "https://www.w3.org/publishing/TBD",
 	            includePermalinks: true,
 	            permalinkEdge: true,
 	            permalinkHide: false,
 	            github: {
 	                repoURL: "https://github.com/mattgarrish/publishing-directory",
 	                branch: "main"
-	            }
+	            },
+	            postProcess: [stripAbstract]
 	        };//]]>
 		</script>
+
 		<style>
 			h3 {
 				margin-top: 1rem !important;
 			}
-		</style>
+			dd > p {
+				margin-top: 1rem !important;
+				margin-left: 1.5rem;
+			}</style>
 	</head>
 	<body>
-		<section id="abstract">
-			<p>Directory of all documents produced by the Publishing@W3C working groups and community
-				groups.</p>
+		<section id="abstract" hidden="hidden"></section>
+		<section id="intro">
+			<h2>Introduction</h2>
+
+			<p>As the <a href="https://www.w3.org/publishing/">Publishing@W3C activity</a> is spread out across a number
+				of <a href="#groups">working, community, and business groups</a>, locating documents produced by these
+				groups is not always a simple task.</p>
+
+			<p>This document aims to provide a complete list of links to all the documents produced by Publishing@W3C
+				groups. It also seeks to simplify understanding their interconnectedness by grouping the documents by
+				technology and topic.</p>
+
+			<p>For information about documents produced by other groups at W3C, please refer to the <a
+					href="https://www.w3.org/TR/">All Standards and Drafts</a> page.</p>
 		</section>
-		
 		<section id="epub">
 			<h2>EPUB</h2>
-			
+
 			<section id="epub-current">
 				<h3>Current Version</h3>
-				
+
 				<ul>
 					<li><a href="https://www.w3.org/TR/epub-33/">EPUB 3.3</a></li>
 					<li><a href="https://www.w3.org/TR/epub-rs-33/">EPUB Reading Systems 3.3</a></li>
 					<li><a href="https://www.w3.org/TR/epub-overview-33/">EPUB 3 Overview</a></li>
 				</ul>
 			</section>
-			
+
 			<section id="epub-old">
 				<h3>Older Versions</h3>
-				
+
 				<ul>
 					<li><a href="https://www.w3.org/publishing/epub32/">EPUB 3.2</a></li>
 					<li><a href="https://idpf.org/epub/31/">EPUB 3.1</a></li>
@@ -55,10 +81,10 @@
 					<li><a href="https://idpf.org/epub/201">EPUB 2.0.1</a></li>
 				</ul>
 			</section>
-			
+
 			<section id="epub-other">
 				<h3>Working Group Notes</h3>
-				
+
 				<ul>
 					<li><a href="https://www.w3.org/TR/epub-multi-rend-11/">EPUB Multiple Renditions 1.1</a></li>
 					<li><a href="https://www.w3.org/TR/epub-ssv-11/">EPUB 3 Structural Semantics Vocabulary 1.1</a></li>
@@ -66,89 +92,101 @@
 				</ul>
 			</section>
 		</section>
-		
 		<section id="audiobooks">
 			<h2>Audiobooks</h2>
-			
+
 			<ul>
 				<li><a href="https://www.w3.org/TR/audiobooks/">Audiobooks</a></li>
 				<li><a href="https://www.w3.org/TR/lpf/">Lightweight Packaging Format (LPF)</a></li>
 			</ul>
 		</section>
-		
 		<section id="a11y">
 			<h2>Accessibility</h2>
-			
+
 			<section id="epub-a11y">
 				<h3>EPUB</h3>
-				
+
 				<ul>
 					<li><a href="https://www.w3.org/TR/epub-a11y-11/">EPUB Accessibility 1.1</a></li>
 					<li><a href="https://www.w3.org/TR/epub-a11y-tech-11/">EPUB Accessibility Techniques 1.1</a></li>
-					<li><a href="https://www.w3.org/TR/epub-a11y-eaa-mapping/">EPUB Accessibility - EU Accessibility Act Mapping</a></li>
-					<li><a href="https://www.w3.org/TR/epub-aria-authoring-11/">EPUB Type to ARIA Role Authoring Guide 1.1</a></li>
+					<li><a href="https://www.w3.org/TR/epub-a11y-eaa-mapping/">EPUB Accessibility - EU Accessibility Act
+							Mapping</a></li>
+					<li><a href="https://www.w3.org/TR/epub-aria-authoring-11/">EPUB Type to ARIA Role Authoring Guide
+							1.1</a></li>
 				</ul>
 			</section>
-			
+
 			<section id="dpub-aria">
 				<h3>DPUB-ARIA</h3>
-				
+
 				<ul>
 					<li><a href="https://www.w3.org/TR/dpub-aria-1.0/">Digital Publishing WAI-ARIA Module 1.0</a></li>
-					<li><a href="https://www.w3.org/TR/dpub-aria-1.0/">Digital Publishing Accessibility API Mappings 1.0</a></li>
+					<li><a href="https://www.w3.org/TR/dpub-aria-1.0/">Digital Publishing Accessibility API Mappings
+							1.0</a></li>
 				</ul>
 			</section>
-			
+
 			<section id="cg-notes">
 				<h3>Community Group Reports</h3>
-				
+
 				<ul>
 					<li><a href="https://www.w3.org/publishing/a11y/page-source-id/">Page Source Identification</a></li>
-					<li><a href="https://www.w3.org/publishing/a11y/audio-playback/">Publishing Guide to Audio Playback and Text-To-Speech</a></li>
+					<li><a href="https://www.w3.org/publishing/a11y/audio-playback/">Publishing Guide to Audio Playback
+							and Text-To-Speech</a></li>
 					<li>
-						<a href="https://www.w3.org/2021/09/UX-Guide-metadata-1.0/principles/">User Experience Guide for Displaying Accessibility Metadata 1.0</a>
+						<a href="https://www.w3.org/2021/09/UX-Guide-metadata-1.0/principles/">User Experience Guide for
+							Displaying Accessibility Metadata 1.0</a>
 						<ul>
-							<li><a href="https://www.w3.org/publishing/a11y/UX-Guide-metadata/techniques/epub-metadata/">Display Techniques for EPUB Accessibility Metadata 1.0</a></li>
-							<li><a href="https://www.w3.org/publishing/a11y/UX-Guide-metadata/techniques/onix-metadata/">Display Techniques for ONIX Accessibility Metadata 1.0</a></li>
+							<li><a href="https://www.w3.org/publishing/a11y/UX-Guide-metadata/techniques/epub-metadata/"
+									>Display Techniques for EPUB Accessibility Metadata 1.0</a></li>
+							<li><a href="https://www.w3.org/publishing/a11y/UX-Guide-metadata/techniques/onix-metadata/"
+									>Display Techniques for ONIX Accessibility Metadata 1.0</a></li>
 						</ul>
 					</li>
 				</ul>
 			</section>
 		</section>
-		
 		<section id="pub-manifest">
 			<h2>Publication Manifest</h2>
-			
+
 			<ul>
 				<li><a href="https://www.w3.org/TR/pub-manifest/">Publication Manifest</a></li>
 			</ul>
 		</section>
-		
 		<section id="wpub">
 			<h2>Web Publications</h2>
-			
+
+			<p>Note: Web Publications is not in active development. The document was published as a W3C Note in case a
+				working group wants to renew the effort and review where it left off.</p>
+
 			<ul>
 				<li><a href="https://www.w3.org/TR/wpub/">Web Publications</a></li>
 				<li><a href="https://www.w3.org/TR/pwp-ucr/">Web Publications Use Cases and Requirements</a></li>
-				<li><a href="https://www.w3.org/TR/pwp/">Web Publications for the Open Web Platform: Vision And Technical Challenges</a></li>
+				<li><a href="https://www.w3.org/TR/pwp/">Web Publications for the Open Web Platform: Vision And
+						Technical Challenges</a></li>
 			</ul>
 		</section>
-		
 		<section id="dpub">
 			<h2>Digital Publishing Reports</h2>
-			
+
 			<ul>
-				<li><a href="https://www.w3.org/TR/dpub-accessibility/">Digital Publishing and Accessibility in W3C Documents</a></li>
-				<li><a href="https://www.w3.org/TR/dpub-css-priorities/">Priorities for CSS from the Digital Publishing Interest Group</a></li>
-				<li><a href="https://www.w3.org/TR/dpub-metadata/">DPUB IG Metadata Task Force Report</a></li>
+				<li><a href="https://www.w3.org/TR/dpub-accessibility/">Digital Publishing and Accessibility in W3C
+						Documents</a></li>
 				<li><a href="https://www.w3.org/TR/dpub-annotation-uc/">Digital Publishing Annotation Use Cases</a></li>
-				<li><a href="https://www.w3.org/TR/dpub-latinreq/">Requirements for Latin Text Layout and Pagination</a></li>
+				<li><a href="https://www.w3.org/TR/dpub-metadata/">DPUB IG Metadata Task Force Report</a></li>
+				<li><a href="https://www.w3.org/TR/dpub-css-priorities/">Priorities for CSS from the Digital Publishing
+						Interest Group</a></li>
+				<li><a href="https://www.w3.org/TR/dpub-latinreq/">Requirements for Latin Text Layout and
+					Pagination</a></li>
 			</ul>
 		</section>
-		
 		<section id="groups">
 			<h2>Publishing@W3C</h2>
-			
+
+			<p>The following groups at W3C are responsible for the creation and maintenance of publishing documents at
+				W3C. For more information about this activity, please visit the <a href="https://www.w3.org/publishing/"
+					>Publishing@W3C home page</a>.</p>
+
 			<dl>
 				<dt>EPUB Working Group</dt>
 				<dd>
@@ -157,20 +195,20 @@
 						<li><a href="https://www.w3.org/groups/wg/epub/publications">Publications</a></li>
 					</ul>
 				</dd>
-				
-				<dt>Publishing Working Group</dt>
+
+				<dt>Audiobooks Working Group</dt>
 				<dd>
 					<ul>
 						<li><a href="https://www.w3.org/groups/wg/publishing">Home Page</a></li>
 						<li><a href="https://www.w3.org/groups/wg/publishing/publications">Publications</a></li>
 					</ul>
 				</dd>
-				
+
 				<dt>Publishing Maintenance Working Group</dt>
 				<dd>
 					<p>Not yet chartered</p>
 				</dd>
-				
+
 				<dt>Publishing Community Group</dt>
 				<dd>
 					<ul>
@@ -178,11 +216,28 @@
 						<li><a href="https://www.w3.org/community/publishingcg/#group-reports">Publications</a></li>
 					</ul>
 				</dd>
-				
+
+				<dt>Synchronized Multimedia for Publications Community Group</dt>
+				<dd>
+					<ul>
+						<li><a href="https://www.w3.org/community/sync-media-pub/">Home Page</a></li>
+						<li><a href="https://www.w3.org/community/sync-media-pub/#group-reports">Publications</a></li>
+					</ul>
+				</dd>
+
+				<dt>Publishing Business Group</dt>
+				<dd>
+					<ul>
+						<li><a href="https://www.w3.org/community/publishingbg/">Home Page</a></li>
+						<li><a href="https://www.w3.org/community/publishingbg/#group-reports">Publications</a></li>
+					</ul>
+				</dd>
+
 				<dt>Digital Publishing Interest Group</dt>
 				<dd>
-					<p>The <a href="https://www.w3.org/dpub/IG/wiki/Main_Page">Digital Publishing Interest Group</a> is now inactive.
-						It was superseded by the Publishing/EPUB Working Groups and the Publishing Community Group.</p>
+					<p>The <a href="https://www.w3.org/dpub/IG/wiki/Main_Page">Digital Publishing Interest Group</a> is
+						now inactive. It was superseded by the Publishing Working Group (now Audiobooks), the Publishing
+						Community Group, and the Publishing Business Group.</p>
 				</dd>
 			</dl>
 		</section>
